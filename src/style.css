@@ -1,0 +1,68 @@
+body{
+    padding:0;
+    margin:0;
+    display:grid;
+    gap:0;
+    min-height:100vh;
+    background:rgb(50, 50, 50);
+    
+}
+body div{
+    padding:0;
+    margin:0;
+}
+#content{
+   
+   display:grid;
+   grid-template-columns: repeat(19,1fr);
+   grid-template-rows: repeat(16,1fr);
+}
+#header{
+    background-color: rgb(81, 81, 81);
+    grid-row: 1/2;
+    grid-column: 1/20;
+    max-height:48px;
+    padding:0;
+    margin:0;
+}
+#header-content{
+    color:rgb(109, 255, 223);
+    padding:0;
+    margin:0;
+    display:flex;
+    align-items: center;
+    padding-left:1vw;
+    font-size:22px;
+    font-weight: 700;
+    max-height:40px;
+}
+#icon{
+    width:38px;
+    height: 38px;
+    margin-right: 10px;
+}
+#author{
+    position:absolute;
+    right:0;
+    display:flex;
+    align-items: center;
+}
+#git_icon{
+    width:25px;
+    height:25px;
+    margin-right: 10px;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+#menu{
+    border:2px solid rgb(0, 0, 0);
+    grid-row: 2/30;
+    grid-column: 1/4;
+}
+#variable{
+    border:2px solid rgb(0, 0, 0);
+    grid-row: 2/30;
+    grid-column: 4/20;
+}
