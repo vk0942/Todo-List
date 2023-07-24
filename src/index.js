@@ -1,6 +1,7 @@
 import './style.css';
 import Header from './header.js';
 import Menu from './menu.js';
+import Tasks from './tasks.js';
 const content = document.createElement('div');
 content.id="content";
 //header section
@@ -11,8 +12,12 @@ const menu = document.createElement('div'); menu.id="menu";
 menu.appendChild(Menu());
 
 //
-const variable = document.createElement('div'); variable.id = "variable";
+
+const tasks = document.createElement('div'); tasks.id = "tasks";
+tasks.appendChild(Tasks());
+
 content.appendChild(header);
 content.appendChild(menu);
-content.appendChild(variable);
+content.appendChild(tasks);
 document.body.appendChild(content);
+

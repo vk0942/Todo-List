@@ -4,8 +4,9 @@ module.exports = {
  
   entry: {
     index: './src/index.js',
-    header: './src/header.js',
-    menu: './src/menu.js',
+    // header: './src/header.js',
+    // menu: './src/menu.js',
+    // tasks: './src/tasks.js',
   },
   plugins: [
     new HtmlWebpackPlugin({

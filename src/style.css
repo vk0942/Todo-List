@@ -35,6 +35,7 @@ body div{
     font-size:22px;
     font-weight: 700;
     max-height:40px;
+    font-size: 'sans serif';
 }
 #icon{
     width:38px;
@@ -61,8 +62,46 @@ a{
     grid-row: 2/30;
     grid-column: 1/4;
 }
-#variable{
+#tasks{
     border:2px solid rgb(0, 0, 0);
     grid-row: 2/30;
     grid-column: 4/20;
+    display:grid;
+    padding:80px 40px 40px 40px;
+}
+#project_heading{
+    color:rgb(165, 187, 206);
+    font-size:30px;
+}
+#inbox_tasks{
+    border:2px solid white;
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+}
+#inbox_panel{
+    border:2px solid blue;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height:10vw;
+}
+#inbox_heading{
+    border:2px solid white;
+    margin-bottom:70px;
+}
+#inbox_heading{
+    font-size:40px;
+    font-weight:700;
+    color:white;
+}
+#dummy_task_div{
+    color:white;
+    display:flex;
+    justify-content: space-between;
+    font-size:20px;
+    border:1px solid white;
+}
+#dummy_task_div:hover{
+    border:2px solid aqua;
 }
