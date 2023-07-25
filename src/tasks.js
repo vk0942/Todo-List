@@ -6,6 +6,7 @@ function Task(title,priority)
 {
    return { title , priority };
 }
+//This function fills tasks in the project_tasks of the  respective  project
 function Fill_tasks(project_tasks,dummy_task)
 {
    
@@ -34,6 +35,9 @@ function prefill_tasks(project_tasks,task_arr)
    });
 }
 
+//This function renders the selected project in the tasks section of the website
+// it includes project title  , a Add_task button which is used to add task in the respective project
+// and project_tasks is the section which actually stores the list of all the tasks in the project and it is filled with the help of Fill_tssk() function above
 function project_list(project)
 {
    const project_panel = document.createElement('div'); project_panel.id="project_panel";
@@ -81,24 +85,7 @@ function Tasks()
     //         })
     //     })
     
-    // inbox.Button.addEventListener('click',()=>{
-    //     console.log(inbox.Storage);
-    //     task_list.innerHTML="";
-       
-    //     task_list.appendChild(project_list(inbox));
-    // })
-    // today.Button.addEventListener('click',()=>{
-    //     console.log(inbox.Storage);
-    //     task_list.innerHTML="";
-       
-    //     task_list.appendChild(project_list(today));
-    // })
-    // week.Button.addEventListener('click',()=>{
-    //     console.log(inbox.Storage);
-    //     task_list.innerHTML="";
-       
-    //     task_list.appendChild(project_list(week));
-    // })
+
 
     return task_list;
 }

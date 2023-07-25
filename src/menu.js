@@ -18,8 +18,12 @@ p_Array.push(inbox);
 p_Array.push(today);
 p_Array.push(week);
 
-
+//Button that adds new projects in p_Array here i have used dummy projects for simplicity later i will add the form to add project title
 const Add_project = document.createElement('button'); Add_project.id="Add_project";
+
+// i divided menu into three sections mainly first the default_projects that is inbox week and today
+// second section is heading Project simple
+// third section is the projects_added section which stores the newly added projects
 
 function Menu()
 {
@@ -36,8 +40,9 @@ function Menu()
         dummy_project.Button.textContent = dummy_project.Name;
         projects_added.appendChild(dummy_project.Button);
         dummy_project.Button.addEventListener('click',()=>{
-
+             // i want this function to work same as  line 71 ans 72 in task.js which i am unable to do;
         })
+        //here projects are added when Add_project button is clicked
         p_Array.push(dummy_project);
     })
     projects_added.appendChild(Add_project);
