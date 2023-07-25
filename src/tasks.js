@@ -1,4 +1,4 @@
-import {p_Array} from './menu.js';
+import {p_Array,Add_project} from './menu.js';
 import task_ICON from './Icons/task.svg';
 
 
@@ -8,7 +8,7 @@ function Task(title,priority)
 }
 function Fill_tasks(project_tasks,dummy_task)
 {
-  
+   
    const dummy_task_div = document.createElement('div');
    dummy_task_div.id="dummy_task_div";
    const dummy_div_left  = document.createElement('div');
@@ -58,6 +58,7 @@ function project_list(project)
    return project_panel;
 }
 
+
 function Tasks()
 {
     const task_list = document.createElement('div');
@@ -65,11 +66,21 @@ function Tasks()
     p_Array.forEach(project =>{
         console.log(project.Button);
         project.Button.addEventListener('click',()=>{
-            console.log(p_Array);
+            
             task_list.innerHTML="";
             task_list.appendChild(project_list(project));
         })
     })
+    // The problem lies here this thing runs now when i have not added any input form that takes project title and creates and oblect and pushes it into the p_Array array
+    Add_project.addEventListener('click',()=>{
+            const project = p_Array[p_Array.length-1];
+            project.Button.addEventListener('click',()=>{
+                
+                task_list.innerHTML="";
+                task_list.appendChild(project_list(project));
+            })
+        })
+    
     // inbox.Button.addEventListener('click',()=>{
     //     console.log(inbox.Storage);
     //     task_list.innerHTML="";
