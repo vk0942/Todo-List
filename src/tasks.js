@@ -72,14 +72,14 @@ function Tasks()
         })
     })
     // The problem lies here this thing runs now when i have not added any input form that takes project title and creates and oblect and pushes it into the p_Array array
-    Add_project.addEventListener('click',()=>{
-            const project = p_Array[p_Array.length-1];
-            project.Button.addEventListener('click',()=>{
+    // Add_project.addEventListener('click',()=>{
+    //         const project = p_Array[p_Array.length-1];
+    //         project.Button.addEventListener('click',()=>{
                 
-                task_list.innerHTML="";
-                task_list.appendChild(project_list(project));
-            })
-        })
+    //             task_list.innerHTML="";
+    //             task_list.appendChild(project_list(project));
+    //         })
+    //     })
     
     // inbox.Button.addEventListener('click',()=>{
     //     console.log(inbox.Storage);
