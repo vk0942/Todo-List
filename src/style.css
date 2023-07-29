@@ -128,7 +128,7 @@ a{
 }
 #Add_project{
     background:var(--color_theme);
-    font-size:larger;
+    font-size:1rem;
     font-weight: 900;
     display:flex;
     box-shadow: 3px 3px 5px 2px rgba(0,0,0,0.9);
@@ -152,7 +152,7 @@ a{
 }
 #tasks{
 
-    background: linear-gradient(90deg,rgb(64, 66, 66),rgb(86, 92, 90),rgb(117, 130, 129));
+    background: linear-gradient(90deg,rgb(0, 0, 0),rgb(43, 44, 44),rgb(64, 71, 70));
     grid-row: 2/30;
     grid-column: 4/20;
     display:flex;
@@ -226,6 +226,8 @@ a{
 #dummy_div_left{
     display:flex;
     font-size:larger;
+    max-width: 50%;
+    justify-content: space-between;
 }
 #task_icon{
     height:1vw;
@@ -237,5 +239,5 @@ input{
 }
 #task_date{
     color:rgb(249, 176, 176);
-    margin-left:20%;
+    
 }

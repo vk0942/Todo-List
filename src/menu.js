@@ -1,3 +1,4 @@
+import {Task} from './tasks.js';
 function project(Name, Storage, Button)//factory function project
 {
     return {
@@ -14,10 +15,22 @@ const inbox = project('Inbox', [], document.createElement('button')); inbox.Butt
 const today = project('Today', [], document.createElement('button')); today.Button.textContent = today.Name;
 const week = project('Week', [], document.createElement('button')); week.Button.textContent = week.Name;
 
-p_Array.push(inbox);
-p_Array.push(today);
-p_Array.push(week);
 
+if(localStorage.getItem("p_Array")===null){
+    p_Array.push(inbox);
+    p_Array.push(today);
+    p_Array.push(week);
+    localStorage.setItem("p_Array",JSON.stringify(p_Array));
+}else{
+    const v_Array = JSON.parse(localStorage.getItem("p_Array"));
+    v_Array.forEach((item)=>{
+       const curr =  project(item.Name,[],document.createElement('button'));
+       curr.Button.textContent = curr.Name;
+       p_Array.push(curr);
+    })
+}
+
+    console.log(p_Array);
 //Button that adds new projects in p_Array here i have used dummy projects for simplicity later i will add the form to add project title
 const Add_project = document.createElement('button'); Add_project.id = "Add_project";
 
@@ -30,6 +43,21 @@ const form = document.createElement('form');
 // third section is the projects_added section which stores the newly added projects
 
 function Menu() {
+    function prefill_projects()
+    {
+        for(let i=0;i<p_Array.length;i++)
+        {
+            if(i>2)projects_added.appendChild(p_Array[i].Button);
+            const old_projects = JSON.parse(localStorage.getItem(p_Array[i].Name));
+            if(old_projects!=null)
+            {
+               old_projects.forEach(item =>{
+                  const curr_task = Task(item.title,document.createElement('button'),item.date);
+                  p_Array[i].Storage.push(curr_task);
+               })
+            }
+        }
+    }
     function Project_form() {
      
         form.action = '/submit';
@@ -72,10 +100,15 @@ function Menu() {
 
             //here projects are added when Add_project button is clicked
             p_Array.push(dummy_project);
+            
+            localStorage.setItem("p_Array",JSON.stringify(p_Array));
+            const proj_list  =  JSON.parse(localStorage.getItem("p_Array"));
+            console.log(typeof(proj_list));
+            console.log(proj_list);
             form.reset();
             form.style.display = "none";
             Add_project.style.display = "flex";
-            console.log(p_Array);
+           
           });
         return form;
     }
@@ -86,6 +119,7 @@ function Menu() {
     const project_Title = document.createElement('div'); project_Title.id = "project_Title";
     const menu_bottom = document.createElement('div'); menu_bottom.id = "menu_bottom";
     const projects_added = document.createElement('div'); projects_added.id = "projects_added";
+    prefill_projects();
     // const Add_project = document.createElement('button'); Add_project.id="Add_project";
     const project_form = Project_form();
     
@@ -93,13 +127,16 @@ function Menu() {
     Add_project.addEventListener('click', () => {
         Add_project.style.display = "none";
         project_form.style.display = "flex";
+
     })
     menu_bottom.appendChild(Add_project);
     menu_bottom.appendChild(project_form);
-    p_Array.forEach(item => {
-        default_projects.appendChild(item.Button);
+    for(let i=0;i<3;i++)
+    {
+        default_projects.appendChild(p_Array[i].Button);
+    }
 
-    })
+
 
     project_Title.textContent = "Projects";
     menu_bottom.appendChild(projects_added);
